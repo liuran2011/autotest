@@ -24,4 +24,5 @@ FORMS    += mainwindow.ui \
     new_project_select.ui \
     nfc_install_project.ui \
     search_project.ui \
-    nfc_project_main.ui
+    nfc_project_main.ui \
+    about.ui
