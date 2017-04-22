@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>自动化测试平台</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -77,10 +77,16 @@
     </property>
     <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menu_L">
+    <property name="title">
+     <string>测试日志(&amp;L)</string>
+    </property>
+   </widget>
    <addaction name="menuProject"/>
    <addaction name="menuCase"/>
    <addaction name="menuSetting"/>
    <addaction name="menuHelp"/>
+   <addaction name="menu_L"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

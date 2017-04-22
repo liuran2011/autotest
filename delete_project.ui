@@ -37,7 +37,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>请输入项目:</string>
+        <string>项目名称:</string>
        </property>
       </widget>
      </item>
