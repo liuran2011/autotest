@@ -1,17 +1,25 @@
-from PyQt5.QtWidgets import QApplication,QMainWindow
+from PyQt5.QtWidgets import QApplication,QMainWindow,QTreeWidgetItem
 from ui_mainwindow import Ui_MainWindow
 from about_dialog import AboutDialog
 from new_project_select import NewProjectSelect
 from delete_project import DeleteProject
 from setting_project import SettingProject
- 
+from config import CONF
+
 class MainWindow(QMainWindow,Ui_MainWindow):
     def __init__(self,parent=None):
         super(QMainWindow,self).__init__(parent)
 
         self.setupUi(self)
         self._setup_actions()
+        self._setup_project_types()
 
+    def _setup_project_types(self):
+        types=CONF.project_type_list()
+        for type in types:
+            item=QTreeWidgetItem(self.treeWidget)
+            item.setText(0,type)
+       
     def _about_show(self):
         about=AboutDialog()
         about.exec_()

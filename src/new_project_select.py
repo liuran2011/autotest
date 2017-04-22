@@ -18,6 +18,7 @@ class NewProjectSelect(QDialog,Ui_newProjectSelect):
     def _nfc_install_test(self):
         self.hide()
         nfc_install=NFCInstallProject()
+        nfc_install.projectType.setText(NFC_INSTALL_TEST)
         nfc_install.exec_()
     
     def _new_project(self):

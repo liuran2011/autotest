@@ -26,7 +26,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLineEdit" name="projectName"/>
        </item>
       </layout>
      </item>
@@ -40,7 +40,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_2">
+        <widget class="QLineEdit" name="projectType">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -58,7 +58,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_3"/>
+        <widget class="QLineEdit" name="tenantName"/>
        </item>
       </layout>
      </item>
@@ -72,7 +72,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_4"/>
+        <widget class="QLineEdit" name="password"/>
        </item>
       </layout>
      </item>
@@ -86,7 +86,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_5"/>
+        <widget class="QLineEdit" name="keystoneURL"/>
        </item>
       </layout>
      </item>
@@ -100,7 +100,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_6"/>
+        <widget class="QLineEdit" name="regionName"/>
        </item>
       </layout>
      </item>
@@ -114,7 +114,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_7"/>
+        <widget class="QLineEdit" name="publicNetwork"/>
        </item>
       </layout>
      </item>
@@ -192,19 +192,19 @@
   </layout>
   <zorder></zorder>
   <zorder>label_7</zorder>
-  <zorder>lineEdit_7</zorder>
+  <zorder>publicNetwork</zorder>
   <zorder>label_6</zorder>
-  <zorder>lineEdit_6</zorder>
+  <zorder>regionName</zorder>
   <zorder>label_5</zorder>
-  <zorder>lineEdit_5</zorder>
+  <zorder>keystoneURL</zorder>
   <zorder>label_4</zorder>
-  <zorder>lineEdit_4</zorder>
+  <zorder>password</zorder>
   <zorder>label_3</zorder>
-  <zorder>lineEdit_3</zorder>
+  <zorder>tenantName</zorder>
   <zorder>label_2</zorder>
-  <zorder>lineEdit_2</zorder>
+  <zorder>projectType</zorder>
   <zorder>label</zorder>
-  <zorder>lineEdit</zorder>
+  <zorder>projectName</zorder>
  </widget>
  <resources/>
  <connections/>
