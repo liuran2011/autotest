@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'delete_project.ui'
 #
-# Created: Sat Apr 22 20:26:16 2017
+# Created: Sat Apr 22 21:32:40 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!

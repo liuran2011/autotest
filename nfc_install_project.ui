@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>267</width>
-    <height>437</height>
+    <width>659</width>
+    <height>541</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>NFC安装测试</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -170,14 +170,14 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="okButton">
            <property name="text">
             <string>确定</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="cancelButton">
            <property name="text">
             <string>取消</string>
            </property>
@@ -190,6 +190,21 @@
     </layout>
    </item>
   </layout>
+  <zorder></zorder>
+  <zorder>label_7</zorder>
+  <zorder>lineEdit_7</zorder>
+  <zorder>label_6</zorder>
+  <zorder>lineEdit_6</zorder>
+  <zorder>label_5</zorder>
+  <zorder>lineEdit_5</zorder>
+  <zorder>label_4</zorder>
+  <zorder>lineEdit_4</zorder>
+  <zorder>label_3</zorder>
+  <zorder>lineEdit_3</zorder>
+  <zorder>label_2</zorder>
+  <zorder>lineEdit_2</zorder>
+  <zorder>label</zorder>
+  <zorder>lineEdit</zorder>
  </widget>
  <resources/>
  <connections/>

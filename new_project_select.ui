@@ -6,63 +6,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>186</width>
-    <height>229</height>
+    <width>282</width>
+    <height>284</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>项目类型</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
+  <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QGroupBox" name="groupBox">
-       <property name="title">
+      <widget class="QLabel" name="label">
+       <property name="text">
         <string>请选择项目类型:</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <widget class="QRadioButton" name="radioButton">
-            <property name="text">
-             <string>NFC安装</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="radioButton_2">
-            <property name="text">
-             <string>NFC自动化测试</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="radioButton_3">
-            <property name="text">
-             <string>CENI安装</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="radioButton_4">
-            <property name="text">
-             <string>CENI自动化测试</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="radioButton_5">
-            <property name="text">
-             <string>交换机自动化测试</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
       </widget>
+     </item>
+     <item>
+      <widget class="QListWidget" name="listWidget"/>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">

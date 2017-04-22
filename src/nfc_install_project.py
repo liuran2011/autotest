@@ -7,3 +7,8 @@ class NFCInstallProject(QDialog,Ui_nfcInstallProjectDialog):
 
         self.setupUi(self)
 
+        self.okButton.clicked.connect(self._ok)
+        self.cancelButton.clicked.connect(self.close)
+
+    def _ok(self):
+        pass

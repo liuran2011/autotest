@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 
 import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 from PyQt5.QtWidgets import QApplication
 from mainwindow import MainWindow
 from env import ENV

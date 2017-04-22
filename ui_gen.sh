@@ -6,4 +6,5 @@
 ./pyuic5 nfc_install_project.ui -o src/ui_nfc_install_project.py
 ./pyuic5 setting_project.ui -o src/ui_setting_project.py
 ./pyuic5 nfc_setting.ui -o src/ui_nfc_setting.py
+./pyuic5 project_types.ui -o src/ui_project_types.py
 ./pyuic5 about.ui -o src/ui_about.py

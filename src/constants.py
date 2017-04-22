@@ -11,5 +11,15 @@ CONFIG_FILE=os.sep.join([CONFIG_DIRECTORY,"autotest.conf"])
 
 CONF_DEFAULT_SECTION="DEFAULT"
 CONF_DEFAULT_SECTION_DEFAULT_PROJECT_TYPE="project_types"
-CONF_DEFAULT_SECTION_DEFAULT_PROJECT_TYPE_VALUE="NFC安装测试,NFC自动化测试,CENI安装测试,CENI自动化测试,交换机自动化测试"
+
+NFC_INSTALL_TEST="NFC安装测试"
+NFC_AUTO_TEST="NFC自动化测试"
+CENI_INSTALL_TEST="CENI安装测试"
+CENI_AUTO_TEST="CENI自动化测试"
+SWITCH_AUTO_TEST="交换机自动化测试"
+CONF_DEFAULT_SECTION_DEFAULT_PROJECT_TYPE_VALUE=",".join([NFC_INSTALL_TEST,
+                                                          NFC_AUTO_TEST,
+                                                          CENI_INSTALL_TEST,
+                                                          CENI_AUTO_TEST,
+                                                          SWITCH_AUTO_TEST])
 

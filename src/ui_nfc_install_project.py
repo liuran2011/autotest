@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'nfc_install_project.ui'
 #
-# Created: Sat Apr 22 20:26:16 2017
+# Created: Sat Apr 22 21:32:41 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_nfcInstallProjectDialog(object):
     def setupUi(self, nfcInstallProjectDialog):
         nfcInstallProjectDialog.setObjectName("nfcInstallProjectDialog")
-        nfcInstallProjectDialog.resize(267, 437)
+        nfcInstallProjectDialog.resize(659, 541)
         self.gridLayout = QtWidgets.QGridLayout(nfcInstallProjectDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.verticalLayout = QtWidgets.QVBoxLayout()
@@ -110,12 +110,12 @@ class Ui_nfcInstallProjectDialog(object):
         self.verticalLayout_2.addWidget(self.groupBox)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.pushButton = QtWidgets.QPushButton(nfcInstallProjectDialog)
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_3.addWidget(self.pushButton)
-        self.pushButton_2 = QtWidgets.QPushButton(nfcInstallProjectDialog)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.horizontalLayout_3.addWidget(self.pushButton_2)
+        self.okButton = QtWidgets.QPushButton(nfcInstallProjectDialog)
+        self.okButton.setObjectName("okButton")
+        self.horizontalLayout_3.addWidget(self.okButton)
+        self.cancelButton = QtWidgets.QPushButton(nfcInstallProjectDialog)
+        self.cancelButton.setObjectName("cancelButton")
+        self.horizontalLayout_3.addWidget(self.cancelButton)
         self.verticalLayout_2.addLayout(self.horizontalLayout_3)
         self.verticalLayout.addLayout(self.verticalLayout_2)
         self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
@@ -125,7 +125,7 @@ class Ui_nfcInstallProjectDialog(object):
 
     def retranslateUi(self, nfcInstallProjectDialog):
         _translate = QtCore.QCoreApplication.translate
-        nfcInstallProjectDialog.setWindowTitle(_translate("nfcInstallProjectDialog", "Dialog"))
+        nfcInstallProjectDialog.setWindowTitle(_translate("nfcInstallProjectDialog", "NFC安装测试"))
         self.label.setText(_translate("nfcInstallProjectDialog", "项目名称:"))
         self.label_2.setText(_translate("nfcInstallProjectDialog", "项目类型:"))
         self.label_3.setText(_translate("nfcInstallProjectDialog", "租户:"))
@@ -138,6 +138,6 @@ class Ui_nfcInstallProjectDialog(object):
         self.checkBox_3.setText(_translate("nfcInstallProjectDialog", "CheckBox"))
         self.checkBox_2.setText(_translate("nfcInstallProjectDialog", "CheckBox"))
         self.checkBox_4.setText(_translate("nfcInstallProjectDialog", "CheckBox"))
-        self.pushButton.setText(_translate("nfcInstallProjectDialog", "确定"))
-        self.pushButton_2.setText(_translate("nfcInstallProjectDialog", "取消"))
+        self.okButton.setText(_translate("nfcInstallProjectDialog", "确定"))
+        self.cancelButton.setText(_translate("nfcInstallProjectDialog", "取消"))
 
