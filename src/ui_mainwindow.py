@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Sat Apr 22 17:35:48 2017
+# Created: Sat Apr 22 20:26:16 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -45,6 +45,8 @@ class Ui_MainWindow(object):
         self.menuSetting.setObjectName("menuSetting")
         self.menuHelp = QtWidgets.QMenu(self.menuBar)
         self.menuHelp.setObjectName("menuHelp")
+        self.menu_L = QtWidgets.QMenu(self.menuBar)
+        self.menu_L.setObjectName("menu_L")
         MainWindow.setMenuBar(self.menuBar)
         self.mainToolBar = QtWidgets.QToolBar(MainWindow)
         self.mainToolBar.setObjectName("mainToolBar")
@@ -87,17 +89,19 @@ class Ui_MainWindow(object):
         self.menuBar.addAction(self.menuCase.menuAction())
         self.menuBar.addAction(self.menuSetting.menuAction())
         self.menuBar.addAction(self.menuHelp.menuAction())
+        self.menuBar.addAction(self.menu_L.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "自动化测试平台"))
         self.menuProject.setTitle(_translate("MainWindow", "项目(&P)"))
         self.menuCase.setTitle(_translate("MainWindow", "用例(&U)"))
         self.menuSetting.setTitle(_translate("MainWindow", "设置(&S)"))
         self.menuHelp.setTitle(_translate("MainWindow", "帮助(&H)"))
+        self.menu_L.setTitle(_translate("MainWindow", "测试日志(&L)"))
         self.actionNewProject.setText(_translate("MainWindow", "新建"))
         self.actionDeleteProject.setText(_translate("MainWindow", "删除"))
         self.actionSettingProject.setText(_translate("MainWindow", "设置"))

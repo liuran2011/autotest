@@ -23,6 +23,8 @@ class Config(object):
         self.conf.write(f)
         f.close()
 
+    def project_type_list(self):
+        types=self.conf.get(CONF_DEFAULT_SECTION,CONF_DEFAULT_SECTION_DEFAULT_PROJECT_TYPE)
+        return types.split(',')
+
 CONF=Config()
-
-
