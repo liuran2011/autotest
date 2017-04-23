@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Sat Apr 22 22:36:04 2017
+# Created: Sun Apr 23 11:26:18 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -54,6 +54,7 @@ class Ui_MainWindow(object):
         self.treeWidget.setItemsExpandable(True)
         self.treeWidget.setHeaderHidden(True)
         self.treeWidget.setObjectName("treeWidget")
+        self.treeWidget.headerItem().setText(0, "1")
         self.treeWidget.header().setVisible(False)
         self.gridLayout_2.addWidget(self.treeWidget, 0, 0, 1, 1)
         self.dockWidget.setWidget(self.dockWidgetContents)
