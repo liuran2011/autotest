@@ -1,0 +1,8 @@
+[DEFAULT]
+name = a
+tenant = a
+password = a
+keystone_url = a
+region = a
+public_network = a
+
