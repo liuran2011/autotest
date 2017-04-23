@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'switch_auto_test_main.ui'
 #
-# Created: Sun Apr 23 17:26:19 2017
+# Created: Sun Apr 23 17:36:22 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!

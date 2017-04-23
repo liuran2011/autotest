@@ -14,7 +14,10 @@ class DeleteProject(QDialog,Ui_deleteProjectDialog):
         self.cancelDeleteProjectButton.clicked.connect(self.close)
 
     def _setup_project_type_list(self):
-        pass
+        for type in CONF.project_type_list():
+            self.comboBox.addItem(type)
+
+        self.comboBox.setCurrentIndex(0)
  
     def _delete_project(self):
         pass

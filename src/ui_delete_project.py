@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'delete_project.ui'
 #
-# Created: Sun Apr 23 17:26:18 2017
+# Created: Sun Apr 23 17:36:21 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -33,6 +33,7 @@ class Ui_deleteProjectDialog(object):
         self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
         self.comboBox = QtWidgets.QComboBox(deleteProjectDialog)
         self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
         self.gridLayout.addWidget(self.comboBox, 1, 1, 1, 1)
         self.lineEdit = QtWidgets.QLineEdit(deleteProjectDialog)
         self.lineEdit.setObjectName("lineEdit")
@@ -62,6 +63,7 @@ class Ui_deleteProjectDialog(object):
         _translate = QtCore.QCoreApplication.translate
         deleteProjectDialog.setWindowTitle(_translate("deleteProjectDialog", "删除项目"))
         self.label_2.setText(_translate("deleteProjectDialog", "项目类型:"))
+        self.comboBox.setItemText(0, _translate("deleteProjectDialog", "新建项目"))
         self.label.setText(_translate("deleteProjectDialog", "项目名称:"))
         self.deleteProjectButton.setText(_translate("deleteProjectDialog", "删除"))
         self.cancelDeleteProjectButton.setText(_translate("deleteProjectDialog", "取消"))
