@@ -31,3 +31,5 @@ class NewProjectSelect(QDialog,Ui_newProjectSelect):
             item=QListWidgetItem()
             item.setText(type)
             self.listWidget.addItem(item) 
+
+        self.listWidget.setCurrentItem(self.listWidget.item(0))
