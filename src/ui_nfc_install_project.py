@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'nfc_install_project.ui'
 #
-# Created: Sun Apr 23 17:36:21 2017
+# Created: Sun Apr 23 19:06:16 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_nfcInstallProjectDialog(object):
     def setupUi(self, nfcInstallProjectDialog):
         nfcInstallProjectDialog.setObjectName("nfcInstallProjectDialog")
-        nfcInstallProjectDialog.resize(659, 541)
+        nfcInstallProjectDialog.resize(267, 289)
         self.gridLayout = QtWidgets.QGridLayout(nfcInstallProjectDialog)
         self.gridLayout.setObjectName("gridLayout")
         self.verticalLayout = QtWidgets.QVBoxLayout()
@@ -81,33 +81,6 @@ class Ui_nfcInstallProjectDialog(object):
         self.publicNetwork.setObjectName("publicNetwork")
         self.horizontalLayout_8.addWidget(self.publicNetwork)
         self.verticalLayout.addLayout(self.horizontalLayout_8)
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.groupBox = QtWidgets.QGroupBox(nfcInstallProjectDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
-        self.groupBox.setSizePolicy(sizePolicy)
-        self.groupBox.setObjectName("groupBox")
-        self.gridLayout_2 = QtWidgets.QGridLayout(self.groupBox)
-        self.gridLayout_2.setObjectName("gridLayout_2")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.checkBox = QtWidgets.QCheckBox(self.groupBox)
-        self.checkBox.setObjectName("checkBox")
-        self.verticalLayout_3.addWidget(self.checkBox)
-        self.checkBox_3 = QtWidgets.QCheckBox(self.groupBox)
-        self.checkBox_3.setObjectName("checkBox_3")
-        self.verticalLayout_3.addWidget(self.checkBox_3)
-        self.checkBox_2 = QtWidgets.QCheckBox(self.groupBox)
-        self.checkBox_2.setObjectName("checkBox_2")
-        self.verticalLayout_3.addWidget(self.checkBox_2)
-        self.checkBox_4 = QtWidgets.QCheckBox(self.groupBox)
-        self.checkBox_4.setObjectName("checkBox_4")
-        self.verticalLayout_3.addWidget(self.checkBox_4)
-        self.gridLayout_2.addLayout(self.verticalLayout_3, 0, 0, 1, 1)
-        self.verticalLayout_2.addWidget(self.groupBox)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.okButton = QtWidgets.QPushButton(nfcInstallProjectDialog)
@@ -116,8 +89,7 @@ class Ui_nfcInstallProjectDialog(object):
         self.cancelButton = QtWidgets.QPushButton(nfcInstallProjectDialog)
         self.cancelButton.setObjectName("cancelButton")
         self.horizontalLayout_3.addWidget(self.cancelButton)
-        self.verticalLayout_2.addLayout(self.horizontalLayout_3)
-        self.verticalLayout.addLayout(self.verticalLayout_2)
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
         self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
 
         self.retranslateUi(nfcInstallProjectDialog)
@@ -133,11 +105,6 @@ class Ui_nfcInstallProjectDialog(object):
         self.label_5.setText(_translate("nfcInstallProjectDialog", "keystone URL:"))
         self.label_6.setText(_translate("nfcInstallProjectDialog", "区域:"))
         self.label_7.setText(_translate("nfcInstallProjectDialog", "外部网络:"))
-        self.groupBox.setTitle(_translate("nfcInstallProjectDialog", "测试类型:"))
-        self.checkBox.setText(_translate("nfcInstallProjectDialog", "CheckBox"))
-        self.checkBox_3.setText(_translate("nfcInstallProjectDialog", "CheckBox"))
-        self.checkBox_2.setText(_translate("nfcInstallProjectDialog", "CheckBox"))
-        self.checkBox_4.setText(_translate("nfcInstallProjectDialog", "CheckBox"))
         self.okButton.setText(_translate("nfcInstallProjectDialog", "确定"))
         self.cancelButton.setText(_translate("nfcInstallProjectDialog", "取消"))
 

@@ -12,7 +12,7 @@ class NFCSetting(QDialog,Ui_nfcProjectSetting):
         self.cancelButton.clicked.connect(self.close)
 
         nfc_test_types=NFCTestTypes(self)
-        self.verticalLayoutTest.insertWidget(-1,nfc_test_types)
+        self.verticalLayoutTest.insertWidget(self.verticalLayoutTest.count()-1,nfc_test_types)
 
     def _nfc_setting(self):
         pass
