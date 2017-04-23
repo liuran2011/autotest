@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'new_project_select.ui'
 #
-# Created: Sun Apr 23 16:50:23 2017
+# Created: Sun Apr 23 17:26:18 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!

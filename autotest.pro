@@ -26,9 +26,9 @@ FORMS    += mainwindow.ui \
     search_project.ui \
     nfc_project_main.ui \
     about.ui \
-    project_types.ui \
     test.ui \
     nfc_auto_test_main.ui \
     ceni_install_main.ui \
     ceni_auto_test_main.ui \
-    switch_auto_test_main.ui
+    switch_auto_test_main.ui \
+    nfc_test_types.ui

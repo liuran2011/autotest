@@ -27,4 +27,7 @@ class Config(object):
         types=self.conf.get(CONF_DEFAULT_SECTION,CONF_DEFAULT_SECTION_DEFAULT_PROJECT_TYPE)
         return types.split(',')
 
+    def nfc_test_list(self):
+        return ['a','b','c']
+
 CONF=Config()

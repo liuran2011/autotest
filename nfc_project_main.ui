@@ -149,48 +149,7 @@
        <item row="0" column="0">
         <layout class="QHBoxLayout" name="horizontalLayout_10">
          <item>
-          <layout class="QVBoxLayout" name="verticalLayout_3">
-           <item>
-            <widget class="QGroupBox" name="groupBox">
-             <property name="title">
-              <string>测试类型:</string>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_3">
-              <item row="0" column="0">
-               <layout class="QVBoxLayout" name="verticalLayout_2">
-                <item>
-                 <widget class="QCheckBox" name="checkBox">
-                  <property name="text">
-                   <string>CheckBox</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_2">
-                  <property name="text">
-                   <string>CheckBox</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_3">
-                  <property name="text">
-                   <string>CheckBox</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_4">
-                  <property name="text">
-                   <string>CheckBox</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
+          <layout class="QVBoxLayout" name="verticalLayoutTest">
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_9">
              <item>

@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>projectTypes</class>
- <widget class="QWidget" name="projectTypes">
+ <class>nfcTestTypes</class>
+ <widget class="QWidget" name="nfcTestTypes">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>139</width>
-    <height>62</height>
+    <width>96</width>
+    <height>43</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
+  <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>请选择项目类型:</string>
+      <string>测试类型</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <layout class="QVBoxLayout" name="verticalLayout_2"/>
-      </item>
-     </layout>
     </widget>
    </item>
   </layout>
