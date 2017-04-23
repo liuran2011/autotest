@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Sun Apr 23 11:26:18 2017
+# Created: Sun Apr 23 16:31:54 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -59,6 +59,9 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.treeWidget, 0, 0, 1, 1)
         self.dockWidget.setWidget(self.dockWidgetContents)
         MainWindow.addDockWidget(QtCore.Qt.DockWidgetArea(1), self.dockWidget)
+        self.toolBar = QtWidgets.QToolBar(MainWindow)
+        self.toolBar.setObjectName("toolBar")
+        MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
         self.actionNewProject = QtWidgets.QAction(MainWindow)
         self.actionNewProject.setObjectName("actionNewProject")
         self.actionDeleteProject = QtWidgets.QAction(MainWindow)
@@ -109,6 +112,7 @@ class Ui_MainWindow(object):
         self.menuHelp.setTitle(_translate("MainWindow", "帮助(&H)"))
         self.menu_L.setTitle(_translate("MainWindow", "测试日志(&L)"))
         self.menu_V.setTitle(_translate("MainWindow", "视图(&V)"))
+        self.toolBar.setWindowTitle(_translate("MainWindow", "toolBar"))
         self.actionNewProject.setText(_translate("MainWindow", "新建"))
         self.actionDeleteProject.setText(_translate("MainWindow", "删除"))
         self.actionSettingProject.setText(_translate("MainWindow", "设置"))
