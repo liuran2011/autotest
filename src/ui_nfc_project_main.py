@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'nfc_project_main.ui'
 #
-# Created: Mon Apr 24 10:41:21 2017
+# Created: Mon Apr 24 18:30:58 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -123,15 +123,15 @@ class Ui_nfcProjectForm(object):
         self.verticalLayoutTest.addLayout(self.horizontalLayout_8)
         self.horizontalLayout_11 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_11.setObjectName("horizontalLayout_11")
-        self.pushButton = QtWidgets.QPushButton(self.tab_3)
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_11.addWidget(self.pushButton)
-        self.pushButton_2 = QtWidgets.QPushButton(self.tab_3)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.horizontalLayout_11.addWidget(self.pushButton_2)
-        self.pushButton_3 = QtWidgets.QPushButton(self.tab_3)
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.horizontalLayout_11.addWidget(self.pushButton_3)
+        self.startTestButton = QtWidgets.QPushButton(self.tab_3)
+        self.startTestButton.setObjectName("startTestButton")
+        self.horizontalLayout_11.addWidget(self.startTestButton)
+        self.pauseTestButton = QtWidgets.QPushButton(self.tab_3)
+        self.pauseTestButton.setObjectName("pauseTestButton")
+        self.horizontalLayout_11.addWidget(self.pauseTestButton)
+        self.stopTestButton = QtWidgets.QPushButton(self.tab_3)
+        self.stopTestButton.setObjectName("stopTestButton")
+        self.horizontalLayout_11.addWidget(self.stopTestButton)
         self.verticalLayoutTest.addLayout(self.horizontalLayout_11)
         self.horizontalLayout_10.addLayout(self.verticalLayoutTest)
         self.tableWidget = QtWidgets.QTableWidget(self.tab_3)
@@ -158,7 +158,7 @@ class Ui_nfcProjectForm(object):
         self.gridLayout_4.addWidget(self.tabWidget, 0, 0, 1, 1)
 
         self.retranslateUi(nfcProjectForm)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(nfcProjectForm)
 
     def retranslateUi(self, nfcProjectForm):
@@ -174,9 +174,9 @@ class Ui_nfcProjectForm(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("nfcProjectForm", "概览"))
         self.label_9.setText(_translate("nfcProjectForm", "测试版本:"))
         self.label_7.setText(_translate("nfcProjectForm", "当前测试:"))
-        self.pushButton.setText(_translate("nfcProjectForm", "开始测试"))
-        self.pushButton_2.setText(_translate("nfcProjectForm", "暂停测试"))
-        self.pushButton_3.setText(_translate("nfcProjectForm", "终止测试"))
+        self.startTestButton.setText(_translate("nfcProjectForm", "开始测试"))
+        self.pauseTestButton.setText(_translate("nfcProjectForm", "暂停测试"))
+        self.stopTestButton.setText(_translate("nfcProjectForm", "终止测试"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("nfcProjectForm", "虚拟机名称"))
         item = self.tableWidget.horizontalHeaderItem(1)
