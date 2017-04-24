@@ -11,4 +11,14 @@ class ProjectFactory(object):
 
         return project
 
+    def load_project(self,conf_file,type):
+        if type==NFC_INSTALL_TEST:
+             return BKNFCInstallProject.load(conf_file)
+
+        return None
+
+    def delete_project(self,project):
+        if project.type==NFC_INSTALL_TEST:
+            BKNFCInstallProject.delete(project)
+
 PF=ProjectFactory()

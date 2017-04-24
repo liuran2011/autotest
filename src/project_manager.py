@@ -1,6 +1,7 @@
 from constants import *
 from log import LOG
 from project_factory import PF
+from env import ENV
 
 class ProjectManager(object):
     def __init__(self):
@@ -9,10 +10,21 @@ class ProjectManager(object):
         self._reload_projects()
 
     def _reload_projects(self):
-        pass
-    
-    def project_list(self):
-        return self._project_list
+        for dir in AUTO_TEST_PROJECT_DIR_LIST:
+            type=ENV.test_type(dir)
+            conf_dir=os.sep.join([PROJECTS_DIRECTORY,dir,"conf"])
+            
+            for parent_dir,dirnames,filenames in os.walk(conf_dir):
+                for file in filenames:
+                    self._project_list.append(PF.load_project(os.path.join(parent_dir,file),type))
+
+    def project_list(self,type):
+        l=[]
+        for project in self._project_list:
+            if project.type==type:
+                l.append(project)
+
+        return l
 
     def project_exists(self,name,type):
         for project in self._project_list:
@@ -28,7 +40,11 @@ class ProjectManager(object):
         project=PF.create_project(name,type,**kwargs)
         self._project_list.append(project)
  
-    def delete_project(self,project_name):
-        pass        
-
+    def delete_project(self,name,type):
+        for p in self._project_list:
+            if p.type==type and p.name==name:
+                PF.delete_project(p)
+                self._project_list.remove(p)
+                return
+        
 PM=ProjectManager()

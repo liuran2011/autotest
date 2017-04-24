@@ -36,4 +36,18 @@ class Env(object):
     def conf_file(self):
         return CONFIG_FILE
 
+    def test_type(self,project_dir):
+        if project_dir==NFC_INSTALL_TEST_DIR:
+            return NFC_INSTALL_TEST
+        elif project_dir==NFC_AUTO_TEST_DIR:
+            return NFC_AUTO_TEST
+        elif project_dir==CENI_INSTALL_TEST_DIR:
+            return CENI_INSTALL_TEST
+        elif project_dir==CENI_AUTO_TEST_DIR:
+            return CENI_AUTO_TEST
+        elif project_dir==SWITCH_AUTO_TEST_DIR:
+            return SWITCH_AUTO_TEST
+        else:
+            raise ValueError("invalid project_dir:%s"%(project_dir))
+
 ENV=Env()

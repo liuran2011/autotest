@@ -44,13 +44,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QComboBox" name="comboBox">
-         <item>
-          <property name="text">
-           <string>新建项目</string>
-          </property>
-         </item>
-        </widget>
+        <widget class="QComboBox" name="comboBox"/>
        </item>
        <item row="0" column="1">
         <widget class="QLineEdit" name="lineEdit"/>

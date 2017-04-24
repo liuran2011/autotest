@@ -1,9 +1,0 @@
-[DEFAULT]
-name = a
-tenant = a
-password = a
-keystone_url = a
-region = a
-public_network = a
-cases = HA 总控+3主控+计算+TGW测试,总主控+计算+TGW测试
-

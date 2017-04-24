@@ -1,6 +1,7 @@
 from project import Project
 from constants import *
 from ConfigParser import ConfigParser
+import os
 
 class BKNFCInstallProject(Project):
     def __init__(self,name,type,**kwargs):
@@ -12,7 +13,28 @@ class BKNFCInstallProject(Project):
         self.region=kwargs[NFC_INSTALL_PROJECT_REGION]
         self.public_network=kwargs[NFC_INSTALL_PROJECT_PUBLIC_NETWORK]
         self.cases=kwargs[NFC_INSTALL_PROJECT_CASES]
+
+    @staticmethod
+    def delete(project):
+        os.remove(project.conf_file())
     
+    @classmethod
+    def load(cls,conf_file):
+        conf=ConfigParser()
+        conf.read(conf_file)
+       
+        name=os.path.basename(conf_file)
+        type=NFC_INSTALL_TEST 
+        tenant=conf.get(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_TENANT)
+        password=conf.get(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_PASSWORD)
+        keystone_url=conf.get(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_KEYSTONE_URL)
+        region=conf.get(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_REGION)
+        public_network=conf.get(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_PUBLIC_NETWORK)
+        cases=conf.get(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_CASES)
+        
+        return cls(name,type,tenant=tenant,password=password,keystone_url=keystone_url,
+                    region=region,public_network=public_network,cases=cases)
+
     def save(self):
         conf=ConfigParser()
         conf.set(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_NAME,self.name)

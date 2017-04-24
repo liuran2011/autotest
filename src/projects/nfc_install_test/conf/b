@@ -1,0 +1,9 @@
+[DEFAULT]
+name = b
+tenant = b
+password = b
+keystone_url = b
+region = b
+public_network = b
+cases = 总控+主控+计算+TGW测试
+
