@@ -6,3 +6,6 @@ class CENIAutoTestMain(QWidget,Ui_ceniAutoTestMain):
         super(CENIAutoTestMain,self).__init__(parent)
 
         self.setupUi(self)
+
+    def update_project(self,project):
+        pass

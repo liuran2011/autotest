@@ -6,3 +6,6 @@ class SwitchAutoTestMain(QWidget,Ui_switchAutoTestMain):
         super(SwitchAutoTestMain,self).__init__(parent)
 
         self.setupUi(self)
+
+    def update_project(self,project):
+        pass

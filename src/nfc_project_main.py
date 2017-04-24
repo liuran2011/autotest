@@ -10,5 +10,19 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
         self.setupUi(self)
         self.projectType.setText(NFC_INSTALL_TEST)
 
-        nfc_test_types=NFCTestTypes(self)
-        self.verticalLayoutTest.insertWidget(0,nfc_test_types)
+        self.nfc_test_types=NFCTestTypes(self)
+        self.verticalLayoutTest.insertWidget(0,self.nfc_test_types)
+
+    def update_project(self,project):
+        if not project:
+            return
+
+        self.projectName.setText(project.name)
+        self.projectType.setText(project.type)
+        self.keystoneURL.setText(project.keystone_url)
+        self.regionName.setText(project.region)
+        self.tenant.setText(project.tenant)
+        self.password.setText(project.password)
+        self.publicNetwork.setText(project.public_network)
+        self.nfc_test_types.set_selected_cases(project.cases)
+

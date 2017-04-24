@@ -6,3 +6,6 @@ class NFCAutoTestMain(QWidget,Ui_nfcAutoTestMain):
         super(NFCAutoTestMain,self).__init__(parent)
 
         self.setupUi(self)
+
+    def update_project(self,project):
+        pass

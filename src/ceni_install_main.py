@@ -6,3 +6,6 @@ class CENIInstallMain(QWidget,Ui_ceniInstallMain):
         super(CENIInstallMain,self).__init__(parent)
 
         self.setupUi(self)
+
+    def update_project(self,project):
+        pass
