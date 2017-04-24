@@ -32,7 +32,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_3">
+        <widget class="QLineEdit" name="project">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -50,7 +50,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLineEdit" name="tenant"/>
        </item>
       </layout>
      </item>
@@ -64,7 +64,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_2"/>
+        <widget class="QLineEdit" name="password"/>
        </item>
       </layout>
      </item>

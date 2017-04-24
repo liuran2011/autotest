@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'nfc_install_project.ui'
 #
-# Created: Mon Apr 24 09:07:56 2017
+# Created: Mon Apr 24 10:41:21 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!

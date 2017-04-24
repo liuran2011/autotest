@@ -21,4 +21,7 @@ class ProjectFactory(object):
         if project.type==NFC_INSTALL_TEST:
             BKNFCInstallProject.delete(project)
 
+    def modify_project(self,project,**kwargs):
+        project.modify(**kwargs)
+
 PF=ProjectFactory()

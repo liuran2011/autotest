@@ -39,12 +39,23 @@ class ProjectManager(object):
 
         project=PF.create_project(name,type,**kwargs)
         self._project_list.append(project)
- 
-    def delete_project(self,name,type):
+
+    def get_project(self,name,type):
         for p in self._project_list:
             if p.type==type and p.name==name:
-                PF.delete_project(p)
-                self._project_list.remove(p)
-                return
+                return p
+        
+        return None 
+
+    def modify_project(self,name,type,**kwargs):
+        project=self.get_project(name,type)
+        if project:
+            PF.modify_project(project,**kwargs)
+ 
+    def delete_project(self,name,type):
+        p=self.get_project(name,type)
+        if p:
+            PF.delete_project(p)
+            self._project_list.remove(p)
         
 PM=ProjectManager()

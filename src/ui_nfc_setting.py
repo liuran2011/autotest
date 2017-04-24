@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'nfc_setting.ui'
 #
-# Created: Mon Apr 24 09:07:56 2017
+# Created: Mon Apr 24 10:41:21 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,28 +27,28 @@ class Ui_nfcProjectSetting(object):
         self.label_4 = QtWidgets.QLabel(nfcProjectSetting)
         self.label_4.setObjectName("label_4")
         self.horizontalLayout_3.addWidget(self.label_4)
-        self.lineEdit_3 = QtWidgets.QLineEdit(nfcProjectSetting)
-        self.lineEdit_3.setEnabled(False)
-        self.lineEdit_3.setObjectName("lineEdit_3")
-        self.horizontalLayout_3.addWidget(self.lineEdit_3)
+        self.project = QtWidgets.QLineEdit(nfcProjectSetting)
+        self.project.setEnabled(False)
+        self.project.setObjectName("project")
+        self.horizontalLayout_3.addWidget(self.project)
         self.verticalLayoutTest.addLayout(self.horizontalLayout_3)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.label = QtWidgets.QLabel(nfcProjectSetting)
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.label)
-        self.lineEdit = QtWidgets.QLineEdit(nfcProjectSetting)
-        self.lineEdit.setObjectName("lineEdit")
-        self.horizontalLayout.addWidget(self.lineEdit)
+        self.tenant = QtWidgets.QLineEdit(nfcProjectSetting)
+        self.tenant.setObjectName("tenant")
+        self.horizontalLayout.addWidget(self.tenant)
         self.verticalLayoutTest.addLayout(self.horizontalLayout)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.label_2 = QtWidgets.QLabel(nfcProjectSetting)
         self.label_2.setObjectName("label_2")
         self.horizontalLayout_2.addWidget(self.label_2)
-        self.lineEdit_2 = QtWidgets.QLineEdit(nfcProjectSetting)
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.horizontalLayout_2.addWidget(self.lineEdit_2)
+        self.password = QtWidgets.QLineEdit(nfcProjectSetting)
+        self.password.setObjectName("password")
+        self.horizontalLayout_2.addWidget(self.password)
         self.verticalLayoutTest.addLayout(self.horizontalLayout_2)
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")

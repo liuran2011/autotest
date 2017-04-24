@@ -20,6 +20,16 @@ class NFCTestTypes(QWidget,Ui_nfcTestTypes):
             self._check_box_list.append(btn)
             self.verticalLayout.addWidget(btn) 
 
+    def set_selected_cases(self,cases):
+        for box in self._check_box_list:
+            box.setChecked(False)
+
+        for case in cases:
+            for box in self._check_box_list:
+                if str(box.text())==case:
+                    box.setChecked(True)
+                    break
+
     def selected_test_types(self):
         type_list=[]
         for box in self._check_box_list:

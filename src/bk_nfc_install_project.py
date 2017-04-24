@@ -30,10 +30,25 @@ class BKNFCInstallProject(Project):
         keystone_url=conf.get(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_KEYSTONE_URL)
         region=conf.get(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_REGION)
         public_network=conf.get(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_PUBLIC_NETWORK)
-        cases=conf.get(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_CASES)
+        cases=conf.get(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_CASES).split(',')
         
         return cls(name,type,tenant=tenant,password=password,keystone_url=keystone_url,
                     region=region,public_network=public_network,cases=cases)
+
+    def modify(self,**kwargs):
+        tenant=kwargs.get(NFC_INSTALL_PROJECT_TENANT,None)
+        if tenant:
+            self.tenant=tenant
+
+        password=kwargs.get(NFC_INSTALL_PROJECT_PASSWORD,None)
+        if password:
+            self.password=password
+        
+        cases=kwargs.get(NFC_INSTALL_PROJECT_CASES,None)
+        if cases:
+            self.cases=cases
+        
+        self.save()
 
     def save(self):
         conf=ConfigParser()
