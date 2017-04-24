@@ -24,6 +24,10 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
         self._setup_project_types()
         self._update_projects()
+        PM.add_observer(self,self._add_project_callback,
+                        self._delete_project_callback,
+                        self._modify_project_callback)
+        self.treeWidget.expandAll()
 
     def _setup_central_widget(self):
         self.centralGridLayout=QGridLayout(self.centralWidget)
@@ -46,17 +50,79 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             item.setText(0,type)
           
             self._project_type_widget_dict[type]=type_widget_map[type]() 
+    
+    def _get_top_level_item(self,type): 
+        item_count=self.treeWidget.topLevelItemCount()
+        for index in range(0,item_count):
+            top_level_item=self.treeWidget.topLevelItem(index)
+            if str(top_level_item.text(0))==type:
+                return top_level_item
+
+        return None
+
+    def _get_project_item(self,top_level_item,name):
+        count=top_level_item.childCount()
+        for index in range(0,count):
+            item=top_level_item.child(index)
+            if str(item.text(0))==name:
+                return item
+
+        return None
+
+    def _modify_project_callback(self,name,type):
+        if self._current_widget_type!=type:
+            return
+
+        top_level_item=self._get_top_level_item(type)
+        project_item=self._get_project_item(top_level_item,name)
+        if project_item==self.treeWidget.currentItem():
+            self._project_widget_show(type,name)
+        
+    def _delete_project_callback(self,name,type):
+        top_level_item=self._get_top_level_item(type)
+        project_item=self._get_project_item(top_level_item,name)
+        current_item=self.treeWidget.currentItem()
+        if project_item:
+            top_level_item.removeChild(project_item)
+        
+        if self._current_widget_type!=type:
+            return
+
+        if current_item!=project_item:
+            return
+
+        if top_level_item.childCount():
+            item=top_level_item.child(0)
+            self.treeWidget.setCurrentItem(item)
+            self._project_widget_show(type,str(item.text(0)))
+        else:
+            self._project_widget_show(type,None)
+ 
+    def _add_project_callback(self,name,type):
+        top_level_item=self._get_top_level_item(type)
+        item=QTreeWidgetItem(top_level_item)
+        item.setText(0,name)
+
+    def _clear_top_level_item_children(self,top_level_item):
+        while top_level_item.childCount():
+            top_level_item.removeChild(top_level_item.child(0))
             
+    def _update_projects_by_type(self,type):
+        top_level_item=self._get_top_level_item(type)
+        self._clear_top_level_item_children(top_level_item)
+
+        projects=PM.project_list(type)
+        for project in projects:
+            item=QTreeWidgetItem(top_level_item)
+            item.setText(0,project.name)
+         
     def _update_projects(self):
         item_count=self.treeWidget.topLevelItemCount()
         for index in range(0,item_count):
             top_level_item=self.treeWidget.topLevelItem(index)
            
             type=str(top_level_item.text(0)) 
-            projects=PM.project_list(type)
-            for project in projects:
-                item=QTreeWidgetItem(top_level_item)
-                item.setText(0,project.name)
+            self._update_projects_by_type(type)
  
     def _about_show(self):
         about=AboutDialog()
@@ -83,7 +149,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
     def _central_widget_update(self):
         if self._current_widget_type:
-            self.centralGridLayout.removeWidget(self._project_type_widget_dict[type])
+            self.centralGridLayout.removeWidget(self._project_type_widget_dict[self._current_widget_type])
             self._current_widget_type=None
         
         project_name=None
@@ -95,6 +161,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         type=str(item.text(0))
         self.centralGridLayout.addWidget(self._project_type_widget_dict[type])
         self._project_widget_show(type,project_name)
+        self._current_widget_type=type
 
     def _setup_actions(self):
         self.actionExit.triggered.connect(QApplication.instance().quit)

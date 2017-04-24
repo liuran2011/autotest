@@ -15,14 +15,30 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
 
     def update_project(self,project):
         if not project:
-            return
+            name=""
+            type=""
+            keystone_url=""
+            region=""
+            tenant=""
+            password=""
+            public_network=""
+            cases=[]
+        else:
+            name=project.name
+            type=project.type
+            keystone_url=project.keystone_url
+            region=project.region
+            tenant=project.tenant
+            password=project.password
+            public_network=project.public_network
+            cases=project.cases
 
-        self.projectName.setText(project.name)
-        self.projectType.setText(project.type)
-        self.keystoneURL.setText(project.keystone_url)
-        self.regionName.setText(project.region)
-        self.tenant.setText(project.tenant)
-        self.password.setText(project.password)
-        self.publicNetwork.setText(project.public_network)
-        self.nfc_test_types.set_selected_cases(project.cases)
+        self.projectName.setText(name)
+        self.projectType.setText(type)
+        self.keystoneURL.setText(keystone_url)
+        self.regionName.setText(region)
+        self.tenant.setText(tenant)
+        self.password.setText(password)
+        self.publicNetwork.setText(public_network)
+        self.nfc_test_types.set_selected_cases(cases)
 

@@ -45,9 +45,10 @@ class NFCSetting(QDialog,Ui_nfcProjectSetting):
             PM.modify_project(self._project.name,self._project.type,
                             tenant=tenant,password=password,cases=cases)
         except Exception as e:
-            print e
-            QMessageBox.warning(self,"提示","修改项目:%s 类型:%s 失败，异常:%s"(self._project.name,
-                        self._project.type,e))
+            QMessageBox.warning(self,"提示","修改项目:%s 类型:%s 失败，异常:%s"%(
+                        self._project.name,
+                        self._project.type,
+                        e))
             return
 
         QMessageBox.information(self,"提示","设置项目成功!")
