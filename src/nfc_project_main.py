@@ -12,6 +12,15 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
 
         self.nfc_test_types=NFCTestTypes(self)
         self.verticalLayoutTest.insertWidget(0,self.nfc_test_types)
+        
+        self.startTestButton.clicked.connect(self._start_test)
+        self.stopTestButton.clicked.connect(self._stop_test)
+
+    def _start_test(self):
+        pass
+
+    def _stop_test(self):
+        pass
 
     def update_project(self,project):
         if not project:
