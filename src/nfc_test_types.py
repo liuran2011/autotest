@@ -13,7 +13,17 @@ class NFCTestTypes(QWidget,Ui_nfcTestTypes):
         self.verticalLayout=QVBoxLayout(self.groupBox)
         self.verticalLayout.setObjectName("verticalLayout")
         
+        self._check_box_list=[]
         for type in CONF.nfc_test_list():
             btn=QCheckBox(self.groupBox)
             btn.setText(type)
+            self._check_box_list.append(btn)
             self.verticalLayout.addWidget(btn) 
+
+    def selected_test_types(self):
+        type_list=[]
+        for box in self._check_box_list:
+            if box.isChecked():
+                type_list.append(str(box.text()))
+        
+        return type_list

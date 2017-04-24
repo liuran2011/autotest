@@ -11,6 +11,7 @@ class BKNFCInstallProject(Project):
         self.keystone_url=kwargs[NFC_INSTALL_PROJECT_KEYSTONE_URL]
         self.region=kwargs[NFC_INSTALL_PROJECT_REGION]
         self.public_network=kwargs[NFC_INSTALL_PROJECT_PUBLIC_NETWORK]
+        self.cases=kwargs[NFC_INSTALL_PROJECT_CASES]
     
     def save(self):
         conf=ConfigParser()
@@ -20,6 +21,7 @@ class BKNFCInstallProject(Project):
         conf.set(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_KEYSTONE_URL,self.keystone_url)
         conf.set(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_REGION,self.region)
         conf.set(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_PUBLIC_NETWORK,self.public_network)
+        conf.set(CONF_DEFAULT_SECTION,NFC_INSTALL_PROJECT_CASES,",".join(self.cases))
 
         file=open(self.conf_file(),"w")
         conf.write(file) 
