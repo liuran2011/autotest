@@ -12,6 +12,7 @@ from ceni_auto_test_main import CENIAutoTestMain
 from config import CONF
 from constants import *
 from project_manager import PM
+from test_case_manager import TM
 
 class MainWindow(QMainWindow,Ui_MainWindow):
     def __init__(self,parent=None):
