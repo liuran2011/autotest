@@ -25,6 +25,22 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
         TM.add_observer(self,self._test_started,
                         self._test_stopped,self._test_case_started,
                         self._test_case_completed)
+        TM.add_vm_observer(self,
+                        self._vm_add,
+                        self._vm_delete,
+                        self._vm_update)
+
+    def _vm_add(self,project_name,project_type,vminfo):
+        if self._is_current_project(project_name,project_type):
+            return
+
+    def _vm_delete(self,project_name,project_type,vminfo):
+        if self._is_current_project(project_name,project_type):
+            return
+
+    def _vm_update(self,project_name,project_type,vminfo):
+        if self._is_current_project(project_name,project_type):
+            return
 
     def _is_current_project(self,project_name,project_type):
         if (str(self.projectName.text())==project_name 

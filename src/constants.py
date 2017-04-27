@@ -6,6 +6,7 @@ WORK_DIRECTORY="."
 LOG_DIRECTORY=os.sep.join([WORK_DIRECTORY,"log"])
 CONFIG_DIRECTORY=os.sep.join([WORK_DIRECTORY,"conf"])
 PROJECTS_DIRECTORY=os.sep.join([WORK_DIRECTORY,"projects"])
+CASES_DIRECTORY=os.sep.join([WORK_DIRECTORY,"cases"])
 CONFIG_FILE=os.sep.join([CONFIG_DIRECTORY,"autotest.conf"])
 
 NFC_INSTALL_TEST_DIR="nfc_install_test"

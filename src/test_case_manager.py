@@ -26,14 +26,38 @@ class TestCaseManager(object):
         """
         self._test_cases={}
         self._observer_list=[]
-        
+        self._vm_observer_list=[]
+
     def destroy(self):
         for type,projects in self._test_cases.iteritems():
             for name,project in projects.iteritems():
                 if project['thread'].isAlive():
                     project['thread'].stop_flag=True
                     project['thread'].join()
-                
+   
+    def _vm_notify(self,project_name,project_type,vminfo,func):
+        for o in self._vm_observer_list:
+            o[func](project_name,project_type,vminfo)
+
+    def add_vm_notify(self,project_name,project_type,vminfo):
+        self._vm_notify(project_name,project_type,vminfo,'vm_add')
+
+    def delete_vm_notify(self,project_name,project_type,vminfo):
+        self._vm_notify(project_name,project_type,'vm_delete')
+
+    def update_vm_notify(self,project_name,project_type,vminfo):
+        self._vm_notify(project_name,project_type,'vm_update')
+
+    def add_vm_observer(self,object,vm_add,vm_delete,vm_update):
+        for o in self._vm_observer_list:
+            if o['object']==object:
+                return
+
+        self._vm_observer_list.append({'object':object,
+                    'vm_add':vm_add,
+                    'vm_delete':vm_delete,
+                    'vm_update':vm_update})
+
     def add_observer(self,
                     object,
                     test_started,
@@ -99,6 +123,7 @@ class TestCaseManager(object):
 
             project_dict['cases'][case.name()]=ret
             TM._test_case_completed(project_name,project_type,case.name(),ret)
+            case.close()
 
         project_dict['etime']=time.asctime()
         TM._test_stopped_notify(project_name,project_type)

@@ -1,3 +1,5 @@
+#coding=utf-8
+
 from constants import *
 import os
 
@@ -35,6 +37,23 @@ class Env(object):
    
     def conf_file(self):
         return CONFIG_FILE
+
+    def test_log_directory(self,project_type):
+        return os.path.join(PROJECTS_DIRECTORY,self.test_dir(project_type),"test_log")
+
+    def test_dir(self,project_type):
+        if project_type==NFC_INSTALL_TEST:
+            return NFC_INSTALL_TEST_DIR
+        elif project_type==NFC_AUTO_TEST:
+            return NFC_AUTO_TEST_DIR
+        elif project_type==CENI_INSTALL_TEST:
+            return CENI_INSTALL_TEST_DIR
+        elif project_type==CENI_AUTO_TEST:
+            return CENI_AUTO_TEST_DIR
+        elif project_type==SWITCH_AUTO_TEST:
+            return SWITCH_AUTO_TEST_DIR
+        else:
+            raise ValueError("无效的项目类型:%s"%(project_type))
 
     def test_type(self,project_dir):
         if project_dir==NFC_INSTALL_TEST_DIR:
