@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'nfc_project_main.ui'
 #
-# Created: Mon Apr 24 21:45:43 2017
+# Created: Thu Apr 27 09:21:38 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -126,9 +126,6 @@ class Ui_nfcProjectForm(object):
         self.startTestButton = QtWidgets.QPushButton(self.tab_3)
         self.startTestButton.setObjectName("startTestButton")
         self.horizontalLayout_11.addWidget(self.startTestButton)
-        self.pauseTestButton = QtWidgets.QPushButton(self.tab_3)
-        self.pauseTestButton.setObjectName("pauseTestButton")
-        self.horizontalLayout_11.addWidget(self.pauseTestButton)
         self.stopTestButton = QtWidgets.QPushButton(self.tab_3)
         self.stopTestButton.setObjectName("stopTestButton")
         self.horizontalLayout_11.addWidget(self.stopTestButton)
@@ -162,15 +159,9 @@ class Ui_nfcProjectForm(object):
         self.label_10 = QtWidgets.QLabel(self.tab_4)
         self.label_10.setObjectName("label_10")
         self.gridLayout_3.addWidget(self.label_10, 0, 0, 1, 1)
-        self.startTestTime = QtWidgets.QLineEdit(self.tab_4)
-        self.startTestTime.setObjectName("startTestTime")
-        self.gridLayout_3.addWidget(self.startTestTime, 0, 1, 1, 1)
         self.label_11 = QtWidgets.QLabel(self.tab_4)
         self.label_11.setObjectName("label_11")
         self.gridLayout_3.addWidget(self.label_11, 0, 2, 1, 1)
-        self.endTestTime = QtWidgets.QLineEdit(self.tab_4)
-        self.endTestTime.setObjectName("endTestTime")
-        self.gridLayout_3.addWidget(self.endTestTime, 0, 3, 1, 1)
         self.testResultTreeWidget = QtWidgets.QTableWidget(self.tab_4)
         self.testResultTreeWidget.setObjectName("testResultTreeWidget")
         self.testResultTreeWidget.setColumnCount(2)
@@ -179,12 +170,23 @@ class Ui_nfcProjectForm(object):
         self.testResultTreeWidget.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.testResultTreeWidget.setHorizontalHeaderItem(1, item)
+        self.testResultTreeWidget.horizontalHeader().setVisible(False)
+        self.testResultTreeWidget.horizontalHeader().setCascadingSectionResizes(False)
+        self.testResultTreeWidget.verticalHeader().setVisible(False)
         self.gridLayout_3.addWidget(self.testResultTreeWidget, 1, 0, 1, 4)
+        self.startTestTime = QtWidgets.QLineEdit(self.tab_4)
+        self.startTestTime.setReadOnly(True)
+        self.startTestTime.setObjectName("startTestTime")
+        self.gridLayout_3.addWidget(self.startTestTime, 0, 1, 1, 1)
+        self.endTestTime = QtWidgets.QLineEdit(self.tab_4)
+        self.endTestTime.setReadOnly(True)
+        self.endTestTime.setObjectName("endTestTime")
+        self.gridLayout_3.addWidget(self.endTestTime, 0, 3, 1, 1)
         self.tabWidget.addTab(self.tab_4, "")
         self.gridLayout_4.addWidget(self.tabWidget, 0, 0, 1, 1)
 
         self.retranslateUi(nfcProjectForm)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(nfcProjectForm)
 
     def retranslateUi(self, nfcProjectForm):
@@ -201,7 +203,6 @@ class Ui_nfcProjectForm(object):
         self.label_9.setText(_translate("nfcProjectForm", "测试版本:"))
         self.label_7.setText(_translate("nfcProjectForm", "当前测试:"))
         self.startTestButton.setText(_translate("nfcProjectForm", "开始测试"))
-        self.pauseTestButton.setText(_translate("nfcProjectForm", "暂停测试"))
         self.stopTestButton.setText(_translate("nfcProjectForm", "终止测试"))
         item = self.vmTableWidget.horizontalHeaderItem(0)
         item.setText(_translate("nfcProjectForm", "虚拟机名称"))

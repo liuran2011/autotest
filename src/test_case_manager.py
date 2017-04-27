@@ -119,7 +119,7 @@ class TestCaseManager(object):
         if not self._test_cases.get(project_type,None):
             self._test_cases[project_type]={}
 
-        if not self._test_case[project_type].get(project_name,None):
+        if not self._test_cases[project_type].get(project_name,None):
             self._test_cases[project_type][project_name]={'thread':None,
                         'stop_flag':False,
                         'stime':time.asctime(),
@@ -129,15 +129,15 @@ class TestCaseManager(object):
                         'version':version}
             t=threading.Thread(
                 target=self._test_run,args=(project_type,project_name,
-                        self._test_case[project_type][project_name],TL))
-            self._test_case[project_type][project_name]['thread']=t
+                        self._test_cases[project_type][project_name],self,TL))
+            self._test_cases[project_type][project_name]['thread']=t
             t.start()
         else:
-            self._test_case[project_type][project_name]['stop_flag']=False
-            self._test_case[project_type][project_name]['thread']=
-                threading.Thread(target=self._test_run,args=(project_type,project_name,
-                        self._test_case[project_type][project_name],TL))
-            self._test_case[project_type][project_name]['thread'].start()
+            self._test_cases[project_type][project_name]['stop_flag']=False
+            self._test_cases[project_type][project_name]['thread']=threading.Thread(
+                        target=self._test_run,args=(project_type,project_name,
+                                                    self._test_cases[project_type][project_name],self,TL))
+            self._test_cases[project_type][project_name]['thread'].start()
 
         self._test_started_notify(project_name,project_type)
 
@@ -167,6 +167,8 @@ class TestCaseManager(object):
         return self._get(project_name,project_type,'etime')
 
     def get_cases(self,project_name,project_type):
-        return self._get(project_name,project_type,'cases')
+        cases=self._get(project_name,project_type,'cases')
+        if not cases:
+            return {}
 
 TM=TestCaseManager()

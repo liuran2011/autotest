@@ -1,5 +1,7 @@
+#coding=utf-8
+
 from ui_nfc_project_main import Ui_nfcProjectForm
-from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QWidget,QMessageBox
 from constants import *
 from nfc_test_types import NFCTestTypes
 from test_case_manager import TM
@@ -18,7 +20,7 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
         self.stopTestButton.clicked.connect(self._stop_test)
         
         self.startTestButton.setEnabled(True)
-        self.endTestButton.setEnabled(False)
+        self.stopTestButton.setEnabled(False)
 
         TM.add_observer(self,self._test_started,
                         self._test_stopped,self._test_case_started,
@@ -42,12 +44,14 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
             return
 
         self.endTestTime.setText(time)
-
+        self.stopTestButton.setEnabled(False)
+        self.startTestButton.setEnabled(True)
+        
     def _test_case_started(self,project_name,project_type,case):
         if not self._is_current_project(project_name,project_type):
             return
 
-        item=QTreeWidgetItem(self.testResultTreeWidget)
+        item=QTableWidgetItem(self.testResultTreeWidget)
         item.setText(0,case)
         
         self.currentTest.setText(case)
@@ -56,14 +60,15 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
         if not self._is_current_project(project_name,project_type):
             return
 
-        count=self.testResultTreeWidget.topLevelItemCount()
+        count=self.testResultTreeWidget.rowCount()
         for index in range(count):
-            item=self.testResultTreeWidget.topLevelItem(index)
-            if str(item.text(0))==case:
+            case_item=self.testResultTreeWidget.item(index,0)
+            result_item=self.testResultTreeWidget.item(index,1)
+            if str(case_item.text(0))==case:
                 if result:
-                    item.setText(1,"成功")
+                    result_item.setText(1,"成功")
                 else:
-                    item.setText(1,"失败")
+                    result_item.setText(1,"失败")
                 break
 
     def _start_test(self):
@@ -72,13 +77,13 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
             QMessageBox.information(self,"提示","请输入测试版本!")
             return
 
-        TM.start_test(str(self.projectType.text()),str(self.projectName.text()),version)
         self.startTestButton.setEnabled(False)
-        self.endTestButton.setEnabled(True)
+        self.stopTestButton.setEnabled(True)
+        TM.start_test(str(self.projectType.text()),str(self.projectName.text()),version)
 
     def _stop_test(self):
         TM.stop_test(str(self.projectType.text()),str(self.projectName.text()))
-        self.endTestButton.setEnabled(False)
+        self.stopTestButton.setEnabled(False)
         self.startTestButton.setEnabled(True)
 
     def update_project(self,project):
@@ -128,13 +133,14 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
 
         if TM.test_running(type,name):
             self.startTestButton.setEnabled(False)
-            self.endTestButton.setEnabled(True)
+            self.stopTestButton.setEnabled(True)
         else:
             self.startTestButton.setEnabled(True)
-            self.endTestButton.setEnabled(False)
-
-        while self.testResultTreeWidget.topLevelItemCount():
-            self.testResultTreeWidget.removeItem(self.testResultTreeWidget.topLevelItem(0))
+            self.stopTestButton.setEnabled(False)
+        """
+        while self.testResultTreeWidget.rowCount():
+            self.testResultTreeWidget.removeRow(0)
+        """
 
         cases=TM.get_cases(name,type)
         for case,ret in cases.iteritems():
