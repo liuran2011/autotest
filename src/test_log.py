@@ -1,12 +1,13 @@
 from env import ENV
 import time
+import os
 
 class TestLog(object):
     def __init__(self,project_type,project_name):
-        self._test_log_file(project_type,project_name)
-        self._file=open(self._test_log_file,"w")
+        self._test_log_file_name=self._test_log_file(project_type,project_name)
+        self._file=open(self._test_log_file_name,"w")
 
-    def _test_log_file(project_type,project_name):
+    def _test_log_file(self,project_type,project_name):
         test_log_dir=ENV.test_log_directory(project_type)
         return os.path.join(test_log_dir,"%s-%s.log"%(project_name,time.strftime("%Y%m%d%H%M%S")))
 
@@ -15,7 +16,7 @@ class TestLog(object):
             self._file.close()
 
     def _write(self,level,log):
-        self._file.write("[%s][%s]%s"%(level,time.asctime(),log))
+        self._file.write("[%s][%s]%s\n"%(level,time.asctime(),log))
 
     def info(self,log):
         self._write('info',log)

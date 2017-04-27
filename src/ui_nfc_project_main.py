@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'nfc_project_main.ui'
 #
-# Created: Thu Apr 27 09:21:38 2017
+# Created: Thu Apr 27 22:59:44 2017
 #      by: PyQt5 UI code generator 5.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -186,7 +186,7 @@ class Ui_nfcProjectForm(object):
         self.gridLayout_4.addWidget(self.tabWidget, 0, 0, 1, 1)
 
         self.retranslateUi(nfcProjectForm)
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(nfcProjectForm)
 
     def retranslateUi(self, nfcProjectForm):

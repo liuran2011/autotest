@@ -1,5 +1,7 @@
 #coding=utf-8
 
+from test_log import TestLog
+
 class NotImplementionException(Exception):
     """not implemention exception"""
 

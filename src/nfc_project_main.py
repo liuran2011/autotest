@@ -1,7 +1,7 @@
 #coding=utf-8
 
 from ui_nfc_project_main import Ui_nfcProjectForm
-from PyQt5.QtWidgets import QWidget,QMessageBox
+from PyQt5.QtWidgets import QWidget,QMessageBox,QTableWidgetItem
 from constants import *
 from nfc_test_types import NFCTestTypes
 from test_case_manager import TM
@@ -22,6 +22,9 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
         self.startTestButton.setEnabled(True)
         self.stopTestButton.setEnabled(False)
 
+        self._test_result_row_count=0
+        self._vm_row_count=0
+
         TM.add_observer(self,self._test_started,
                         self._test_stopped,self._test_case_started,
                         self._test_case_completed)
@@ -31,15 +34,39 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
                         self._vm_update)
 
     def _vm_add(self,project_name,project_type,vminfo):
-        if self._is_current_project(project_name,project_type):
+        if not self._is_current_project(project_name,project_type):
             return
+
+        self.vmTableWidget.insertRow(self._vm_row_count)
+        
+        item_name=QTableWidgetItem()
+        item_uuid=QTableWidgetItem()
+        item_status=QTableWidgetItem()
+        item_floating_ip=QTableWidgetItem()
+        item_name.setText(vminfo.name())
+        item_uuid.setText(vminfo.uuid())
+        item_status.setText(vminfo.status())
+        item_floating_ip.setText(vminfo.floating_ip())
+        
+        self.vmTableWidget.setItem(self._vm_row_count,0,item_name)
+        self.vmTableWidget.setItem(self._vm_row_count,1,item_uuid)
+        self.vmTableWidget.setItem(self._vm_row_count,2,item_status)
+        self.vmTableWidget.setItem(self._vm_row_count,3,item_floating_ip)
+
+        self._vm_row_count=self._vm_row_count+1
 
     def _vm_delete(self,project_name,project_type,vminfo):
-        if self._is_current_project(project_name,project_type):
+        if not self._is_current_project(project_name,project_type):
             return
-
+       
+        for row in range(self._vm_row_count):
+            if str(self.vmTableWidget.item(row,1).text())==vminfo.uuid():
+                self.vmTableWidget.removeRow(row)
+                self._vm_row_count=self._vm_row_count-1
+                break
+        
     def _vm_update(self,project_name,project_type,vminfo):
-        if self._is_current_project(project_name,project_type):
+        if not self._is_current_project(project_name,project_type):
             return
 
     def _is_current_project(self,project_name,project_type):
@@ -67,25 +94,28 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
         if not self._is_current_project(project_name,project_type):
             return
 
-        item=QTableWidgetItem(self.testResultTreeWidget)
-        item.setText(0,case)
-        
+        item_key=QTableWidgetItem()
+        item_key.setText(case)
+       
+        item_value=QTableWidgetItem()
+        item_value.setText("正在执行...")
+
+        self.testResultTreeWidget.insertRow(self._test_result_row_count)
+        self.testResultTreeWidget.setItem(self._test_result_row_count,0,item_key) 
+        self.testResultTreeWidget.setItem(self._test_result_row_count,1,item_value)
+        self._test_result_row_count=self._test_result_row_count+1
+
         self.currentTest.setText(case)
 
     def _test_case_completed(self,project_name,project_type,case,result):
         if not self._is_current_project(project_name,project_type):
             return
 
-        count=self.testResultTreeWidget.rowCount()
-        for index in range(count):
-            case_item=self.testResultTreeWidget.item(index,0)
-            result_item=self.testResultTreeWidget.item(index,1)
-            if str(case_item.text(0))==case:
-                if result:
-                    result_item.setText(1,"成功")
-                else:
-                    result_item.setText(1,"失败")
-                break
+        item=self.testResultTreeWidget.item(self.testResultTreeWidget.rowCount()-1,1)
+        if result:
+            item.setText("成功")
+        else:
+            item.setText("失败")
 
     def _start_test(self):
         version=str(self.version.text())
@@ -93,6 +123,7 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
             QMessageBox.information(self,"提示","请输入测试版本!")
             return
 
+        self._test_result_row_count=0
         self.startTestButton.setEnabled(False)
         self.stopTestButton.setEnabled(True)
         TM.start_test(str(self.projectType.text()),str(self.projectName.text()),version)
@@ -101,6 +132,7 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
         TM.stop_test(str(self.projectType.text()),str(self.projectName.text()))
         self.stopTestButton.setEnabled(False)
         self.startTestButton.setEnabled(True)
+        self._test_result_row_count=0
 
     def update_project(self,project):
         if not project:
@@ -153,17 +185,22 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
         else:
             self.startTestButton.setEnabled(True)
             self.stopTestButton.setEnabled(False)
+       
         """
-        while self.testResultTreeWidget.rowCount():
-            self.testResultTreeWidget.removeRow(0)
+        self.testResultTreeWidget.clear()
         """
 
         cases=TM.get_cases(name,type)
         for case,ret in cases.iteritems():
-            item=QTreeWidgetItem(self.testResultTreeWidget)
-            item.setText(0,case)
-            if ret:
-                item.setText(1,"成功")
-            else:
-                item.setText(1,"失败")
+            item_case=QTableWidgetItem()
+            item_ret=QTableWidgetItem()
+            item_case.setText(case)
 
+            if ret:
+                item_ret.setText("成功")
+            else:
+                item_ret.setText("失败")
+
+            row=self.testResultTreeWidget.rowCount()
+            self.testResultTreeWidget.setItem(row,0,item_case)
+            self.testResultTreeWidget.setItem(row,1,item_ret)

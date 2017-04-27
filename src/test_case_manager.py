@@ -43,10 +43,10 @@ class TestCaseManager(object):
         self._vm_notify(project_name,project_type,vminfo,'vm_add')
 
     def delete_vm_notify(self,project_name,project_type,vminfo):
-        self._vm_notify(project_name,project_type,'vm_delete')
+        self._vm_notify(project_name,project_type,vminfo,'vm_delete')
 
     def update_vm_notify(self,project_name,project_type,vminfo):
-        self._vm_notify(project_name,project_type,'vm_update')
+        self._vm_notify(project_name,project_type,vminfo,'vm_update')
 
     def add_vm_observer(self,object,vm_add,vm_delete,vm_update):
         for o in self._vm_observer_list:
@@ -119,6 +119,8 @@ class TestCaseManager(object):
             try:
                 ret=case.run()
             except Exception as e:
+                LOG.error("project_type:%s name:%s case:%s run failed. except:%s"%(project_type,
+                        project_name,case.name(),e))
                 ret=False
 
             project_dict['cases'][case.name()]=ret

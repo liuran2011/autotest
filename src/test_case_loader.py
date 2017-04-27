@@ -14,8 +14,15 @@ class TestCaseLoader(object):
 
         for parent_dir,dirnames,filenames in os.walk(self._test_case_directory(type,name)):
             for file in filenames:
+                if file=="__init__.py":
+                    continue
+
+                if not file.endswith(".py"):
+                    continue
+
+                module_name="%s.%s.%s"%("cases",ENV.test_dir(type),file.strip(".py"))
                 try:
-                    module=importlib.import_module(file,parent_dir)
+                    module=importlib.import_module(module_name)
                 except Exception as e:
                     LOG.error("import module: %s directory:%s failed. except:%s"%(file,parent_dir,e))
                     continue
