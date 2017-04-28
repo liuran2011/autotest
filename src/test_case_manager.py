@@ -110,13 +110,16 @@ class TestCaseManager(object):
     def _modify_project_callback(self,name,type):
         pass
 
-    def _test_run(self,project_type,project_name,project_dict,TM,TL):
+    def _test_run(self,project_type,project_name,project_dict,TM,TL,cases_name_list):
         cases=TL.load_cases(project_type,project_name)
         for case in cases:
             if project_dict['stop_flag']:
                 break
-          
+        
             case_name=case.name()
+            if case_name not in cases_name_list:
+                continue
+
             project_dict['cases'][case_name]=None
             project_dict['current_case']=case
             TM._test_case_started(project_name,project_type,case_name)
@@ -144,7 +147,7 @@ class TestCaseManager(object):
         except KeyError as e:
             return False
 
-    def start_test(self,project_type,project_name,version):
+    def start_test(self,project_type,project_name,cases_name_list,version):
         if self.test_running(project_type,project_name):
             self.stop_test(project_type,project_name)
 
@@ -165,7 +168,8 @@ class TestCaseManager(object):
         
         thread=threading.Thread(target=self._test_run,
                 args=(project_type,project_name,
-                      self._test_cases[project_type][project_name],self,TL))
+                      self._test_cases[project_type][project_name],self,TL,
+                      cases_name_list))
 
         self._test_cases[project_type][project_name]['thread']=thread
         self._test_started_notify(project_name,project_type)

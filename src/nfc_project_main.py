@@ -136,7 +136,10 @@ class NFCProjectMain(QWidget,Ui_nfcProjectForm):
         self._vm_list_clear_rows()
         self._test_result_clear_rows()
 
-        TM.start_test(str(self.projectType.text()),str(self.projectName.text()),version)
+        TM.start_test(str(self.projectType.text()),
+                    str(self.projectName.text()),
+                    self.nfc_test_types.selected_test_types(),
+                    version)
 
     def _stop_test(self):
         TM.stop_test(str(self.projectType.text()),str(self.projectName.text()))

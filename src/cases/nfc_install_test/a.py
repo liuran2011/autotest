@@ -1,3 +1,5 @@
+#coding=utf-8
+
 import time
 from test_case_manager import TM
 from vm_info import VMInfo
@@ -9,7 +11,7 @@ class Case(TestCase):
         self.vm_list=[]
 
     def name(self):
-        return "test-case-a"
+        return "HA 总控+3主控+计算+TGW测试"
     
     def has_vm(self):
         return True
