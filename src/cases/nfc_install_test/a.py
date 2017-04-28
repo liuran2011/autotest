@@ -14,7 +14,7 @@ class Case(TestCase):
     def has_vm(self):
         return True
 
-    def vm_list(self):
+    def virtual_machine_list(self):
         return self.vm_list
 
     def run(self):

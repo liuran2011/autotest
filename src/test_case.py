@@ -17,7 +17,7 @@ class TestCase(object):
     def name(self):
         raise NotImplementionException("测试用例必须实现name()函数!")
 
-    def vm_list(self):
+    def virtual_machine_list(self):
         return []
 
     def has_vm(self):

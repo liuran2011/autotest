@@ -1,3 +1,5 @@
+#coding=utf-8
+
 from project_manager import PM
 from log import LOG
 from constants import *
@@ -113,18 +115,21 @@ class TestCaseManager(object):
         for case in cases:
             if project_dict['stop_flag']:
                 break
-           
-            TM._test_case_started(project_name,project_type,case.name())
-            project_dict['case']=case.name()
+          
+            case_name=case.name()
+            project_dict['cases'][case_name]=None
+            project_dict['current_case']=case
+            TM._test_case_started(project_name,project_type,case_name)
+
             try:
                 ret=case.run()
             except Exception as e:
                 LOG.error("project_type:%s name:%s case:%s run failed. except:%s"%(project_type,
-                        project_name,case.name(),e))
+                        project_name,case_name,e))
                 ret=False
 
-            project_dict['cases'][case.name()]=ret
-            TM._test_case_completed(project_name,project_type,case.name(),ret)
+            project_dict['cases'][case_name]=ret
+            TM._test_case_completed(project_name,project_type,case_name,ret)
             case.close()
 
         project_dict['etime']=time.asctime()
@@ -147,26 +152,25 @@ class TestCaseManager(object):
             self._test_cases[project_type]={}
 
         if not self._test_cases[project_type].get(project_name,None):
-            self._test_cases[project_type][project_name]={'thread':None,
-                        'stop_flag':False,
-                        'stime':time.asctime(),
-                        'etime':None,
-                        'current_case':None,
-                        'cases':{},
-                        'version':version}
-            t=threading.Thread(
-                target=self._test_run,args=(project_type,project_name,
-                        self._test_cases[project_type][project_name],self,TL))
-            self._test_cases[project_type][project_name]['thread']=t
-            t.start()
-        else:
-            self._test_cases[project_type][project_name]['stop_flag']=False
-            self._test_cases[project_type][project_name]['thread']=threading.Thread(
-                        target=self._test_run,args=(project_type,project_name,
-                                                    self._test_cases[project_type][project_name],self,TL))
-            self._test_cases[project_type][project_name]['thread'].start()
+            self._test_cases[project_type][project_name]={}
+ 
+        self._test_cases[project_type][project_name].update(
+            {   'stop_flag':False,
+                'cases':{},
+                'version':version,
+                'stime':time.asctime(),
+                'etime':None,
+                'current_case':None
+            })
+        
+        thread=threading.Thread(target=self._test_run,
+                args=(project_type,project_name,
+                      self._test_cases[project_type][project_name],self,TL))
 
+        self._test_cases[project_type][project_name]['thread']=thread
         self._test_started_notify(project_name,project_type)
+
+        self._test_cases[project_type][project_name]['thread'].start()
 
     def stop_test(self,project_type,project_name):
         if self.test_running(project_type,project_name):
@@ -179,6 +183,8 @@ class TestCaseManager(object):
         try:
             return self._test_cases[project_type][project_name][key]
         except KeyError as e:
+            LOG.error("project_name:%s project_type:%s key:%s failed, except:%s"%(project_name,
+                    project_type,key,e))
             return None
 
     def get_version(self,project_name,project_type):
@@ -197,5 +203,7 @@ class TestCaseManager(object):
         cases=self._get(project_name,project_type,'cases')
         if not cases:
             return {}
+        else:
+            return cases
 
 TM=TestCaseManager()

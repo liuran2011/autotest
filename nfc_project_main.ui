@@ -26,7 +26,7 @@
       <enum>QTabWidget::North</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -253,13 +253,13 @@
        <item row="1" column="0" colspan="4">
         <widget class="QTableWidget" name="testResultTreeWidget">
          <attribute name="horizontalHeaderVisible">
-          <bool>false</bool>
+          <bool>true</bool>
          </attribute>
          <attribute name="horizontalHeaderCascadingSectionResizes">
           <bool>false</bool>
          </attribute>
          <attribute name="verticalHeaderVisible">
-          <bool>false</bool>
+          <bool>true</bool>
          </attribute>
          <column>
           <property name="text">
