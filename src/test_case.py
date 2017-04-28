@@ -1,6 +1,7 @@
 #coding=utf-8
 
 from test_log import TestLog
+from project_manager import PM
 
 class NotImplementionException(Exception):
     """not implemention exception"""
@@ -9,6 +10,8 @@ class TestCase(object):
     def __init__(self,project_name,project_type):
         self.project_name=project_name
         self.project_type=project_type
+        self.project=PM.get_project(project_name,project_type)
+
         self.log=TestLog(project_type,project_name)
 
     def close(self):
